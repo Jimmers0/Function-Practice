@@ -70,13 +70,13 @@ console.log(oddArray)
 // ---------------------------
 // 5. Find words that contain `is`
 // ---------------------------
-
-function filterByValue(array, string) {
-    return array.filter(o =>
-        Object.keys(o).some(k => o[k].toLowerCase().includes(string.toLowerCase())));
-    }
-console.log(filterByValue(strings, 'is')); 
-
+let iswords = []
+ for (let i = 0; i < strings.length; i++) {
+     if (strings[i].indexOf('is') !== -1) {
+         iswords.push(strings[i])
+     }
+ }
+console.log(iswords)
 // ---------------------------
 // 5. Join Both Arrays Together
 // ---------------------------
@@ -92,6 +92,23 @@ join(strings, numbers)
 // 6. Use the Instructors array and find all that teach JavaScript, 
 //    then sort them alphabetically
 // ---------------------------
-var javascriptTeachers =  instructors.filter(function(instructor) {
-     return instructor.teaches == "JavaScript"});
-    console.log(javascriptTeachers)
+// var javascriptTeachers =  instructors.filter(function(instructor) {
+//      return instructor.teaches == "JavaScript"});
+//     console.log(javascriptTeachers)
+
+let js = []
+for (let i = 0; i < instructors.length; i++) {
+    if (instructors[i].teaches === 'JavaScript') {
+        js.push(instructors[i])
+    }
+}
+
+js.sort(function(a,b){
+    if (a.firstname > b.firstname) {
+        return 1
+    } else {
+        return -1
+    }
+})
+
+console.log(js)
